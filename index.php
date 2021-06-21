@@ -17,6 +17,7 @@ include 'header.php';
     <br>
     <?php
     include 'config.php';
+    $sql;
     if (isset($_POST['submit'])) {
         if (!empty($_POST['section'])) {
 
