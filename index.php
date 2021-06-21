@@ -36,8 +36,8 @@ include 'header.php';
         } else {
             echo "<h2 align=center >Please choose an option!!!</h2>";
         }
+        $result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
     }
-    $result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
     if (mysqli_num_rows($result) > 0) { ?>
         <table cellpadding="7px">
             <thead>
