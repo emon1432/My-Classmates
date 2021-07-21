@@ -8,7 +8,7 @@ if ($section == "sec_a") {
 } else {
     $sql = "DELETE FROM sec_b WHERE Roll={$roll}";
 }
-$result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
+$result = $conn->query($sql) or die("Query Ubsuccessful!!!");
 header('Location: http://localhost/CRUD/index.php');
-mysqli_close($conn);
+$conn->close();
 ?>

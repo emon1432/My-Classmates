@@ -15,9 +15,9 @@ if ($section == 'sec_a') {
     $sql = "INSERT INTO sec_b(Roll,Name,Gender,Phone_Number,Blood_group) VALUES ('{$roll}','{$name}','{$gender}','{$phone}','{$blood_group}')";
 }
 
-$result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
+$result = $conn->query($sql) or die("Query Ubsuccessful!!!");
 
 header('Location: http://localhost/CRUD/index.php');
 
-mysqli_close($conn);
+$conn->close();
 ?>

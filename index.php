@@ -26,7 +26,9 @@ include 'header.php';
 
             if ($_POST['section'] == 'sec_a') {
                 echo "<h2 align = center> Section A </h2>";
+
                 $sql = "SELECT * FROM sec_a JOIN gender ON sec_a.Gender=gender.gender_id LEFT JOIN blood_group ON sec_a.Blood_group=blood_group.blood_id ORDER BY Roll ASC";
+                
                 // $_SESSION["sec"]="sec_a";
             } else {
                 echo "<h2 align = center> Section B </h2>";
@@ -36,9 +38,10 @@ include 'header.php';
         } else {
             echo "<h2 align=center >Please choose an option!!!</h2>";
         }
-        $result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
+
+        $result = $conn->query($sql) or die("Query Unsuccessful!!!");
     }
-    if (mysqli_num_rows($result) > 0) { ?>
+    if ($result->num_rows > 0) { ?>
         <table cellpadding="7px">
             <thead>
                 <th>Roll</th>
@@ -50,7 +53,7 @@ include 'header.php';
             </thead>
             <tbody>
                 <?php
-                while ($row = mysqli_fetch_assoc($result)) { ?>
+                while ($row = $result->fetch_assoc()) { ?>
                     <tr>
                         <td><?php echo $row['Roll']; ?></td>
                         <td><?php echo $row['Name']; ?></td>
@@ -68,7 +71,7 @@ include 'header.php';
     <?php } else {
         echo "<h2>No Record Found!!!</h2>";
     }
-    mysqli_close($conn);
+    $conn->close();
     ?>
 </div>
 </div>

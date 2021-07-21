@@ -28,9 +28,9 @@
         } else {
             $sql = "SELECT * FROM sec_b WHERE Roll = {$roll}";
         }
-        $result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
+        $result = $conn->query($sql) or die("Query Ubsuccessful!!!");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
     ?>
                 <form class="post-form" action="updatedata.php" method="post">
                     <div class="form-group">
@@ -42,10 +42,10 @@
                         <label>Gender</label>
                         <?php
                         $sql1 = "SELECT * FROM gender";
-                        $result1 = mysqli_query($conn, $sql1) or die("Query Ubsuccessful!!!");
-                        if (mysqli_num_rows($result1) > 0) {
+                        $result1 = $conn->query($sql1) or die("Query Ubsuccessful!!!");
+                        if ($result1->num_rows > 0) {
                             echo '<select name="gender">';
-                            while ($row1 = mysqli_fetch_assoc($result1)) {
+                            while ($row1 = $result1->fetch_assoc()) {
                                 if ($row['Gender'] == $row1['gender_id']) {
                                     $select = "selected";
                                 } else {
@@ -61,10 +61,10 @@
                         <label>Blood Group</label>
                         <?php
                         $sql2 = "SELECT * FROM blood_group";
-                        $result2 = mysqli_query($conn, $sql2) or die("Query Ubsuccessful!!!");
-                        if (mysqli_num_rows($result2) > 0) {
+                        $result2 = $conn->query($sql2) or die("Query Ubsuccessful!!!");
+                        if ($result2->num_rows > 0) {
                             echo '<select name="blood_group">';
-                            while ($row2 = mysqli_fetch_assoc($result2)) {
+                            while ($row2 = $result2->fetch_assoc()) {
                                 if ($row['Blood_group'] == $row2['blood_id']) {
                                     $select = "selected";
                                 } else {

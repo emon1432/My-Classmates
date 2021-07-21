@@ -14,10 +14,10 @@ if ($section == 'sec_a') {
     $sql = "UPDATE sec_b SET Name = '{$name}', Gender = '{$gender}', Blood_group='{$blood_group}', Phone_Number = '{$phone}' WHERE Roll={$roll}";
 }
 
-$result = mysqli_query($conn, $sql) or die("Query Ubsuccessful!!!");
+$result = $conn->query($sql) or die("Query Ubsuccessful!!!");
 
 header('Location: http://localhost/CRUD/index.php');
 
-mysqli_close($conn);
+$conn->close();
 ?>
 

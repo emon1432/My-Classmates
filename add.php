@@ -25,8 +25,8 @@
                 <?php
                 include 'config.php';
                 $sql = "SELECT * FROM gender";
-                $result = mysqli_query($conn, $sql) or die("Query Unsuccessful");
-                while($row = mysqli_fetch_assoc($result)){
+                $result = $conn->query($sql) or die("Query Unsuccessful");
+                while($row = $result->fetch_assoc()){
                 ?>
                 <option value="<?php echo $row['gender_id']?>"><?php echo $row['gender_name']?></option>
                 <?php } ?>
@@ -40,8 +40,8 @@
                 <option value="" selected disabled>Select Blood Group</option>
                 <?php 
                  $sql1 = "SELECT * FROM blood_group";
-                 $result1 = mysqli_query($conn, $sql1) or die("Query Unsuccessful");
-                 while($row1 = mysqli_fetch_assoc($result1)){
+                 $result1 = $conn->query($sql1) or die("Query Unsuccessful");
+                 while($row1 = $result1->fetch_assoc()){
                  ?>
                 ?>
                 <option value="<?php echo $row1['blood_id']?>"><?php echo $row1['blood_name']?></option>
